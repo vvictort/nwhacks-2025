@@ -60,3 +60,14 @@
     background-color: #f1f1f1;
     /* Slightly darker background on hover */
 }
+
+.nugget-icon {
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+.balance-container {
+    display: flex;
+    align-items: center;
+}

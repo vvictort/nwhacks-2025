@@ -1,4 +1,4 @@
-
+import nuggetImage from './sprites/nugget.png';
 
 const ShopItem = ({ item, handlePurchase }) => {
     return (
@@ -17,11 +17,21 @@ const ShopItem = ({ item, handlePurchase }) => {
                 fontSize: "1.2em",
                 color: "#333"
             }}>{item.name}</h3>
-            <p style={{
-                margin: "0 0 10px 0",
-                fontSize: "1em",
-                color: "#666"
-            }}>Price: {item.price} nuggets</p>
+            <span style={{
+                display: "flex",
+            }}>
+                <p style={{
+                    margin: "0 0 10px 0",
+                    fontSize: "1em",
+                    color: "#666"
+                }}>Price: </p>
+                <img className="nugget-icon" src={nuggetImage} alt="nugget"></img>
+                <p style={{
+                    margin: "0 0 10px 0",
+                    fontSize: "1em",
+                    color: "#666"
+                }}>{item.price}</p>
+            </span>
             <button
                 onClick={() => handlePurchase(item)}
                 disabled={item.purchased}

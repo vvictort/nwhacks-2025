@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useLocalStorage from "use-local-storage";
-import ShopItem from "./components/ShopItem";
+import ShopItem from "./ShopItem";
+import nuggetImage from './sprites/nugget.png';
 import "./Shop.css";
 
 const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo }) => {
@@ -43,7 +44,7 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo }) => {
             const newBalance = balance - item.price;
             setBalance(newBalance);
             setBalance('balance', JSON.stringify(newBalance));
-            alert(`You bought the ${item.name}!`);
+            alert(`Slyther is now equipped with the ${item.name}!`);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
                     currentItem.id === item.id
@@ -60,7 +61,11 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo }) => {
         <div className="shop">
             {/* {date == 18 && updateNumNuggets} */}
             <h2 className="shop-header">SHOP</h2>
-            <p className="shop-balance">Balance: ${balance} nuggets</p>
+            <span className="balance-container">
+                <p className="shop-balance">Balance: </p>
+                <img className="nugget-icon" src={nuggetImage} alt="nugget"></img>
+                <p className="shop-balance">{balance}</p>
+            </span>
             <div className="shop-items">
                 {items.map((item) => (
                     <ShopItem item={item} handlePurchase={handlePurchase}></ShopItem>
