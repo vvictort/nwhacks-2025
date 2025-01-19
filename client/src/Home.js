@@ -1,10 +1,11 @@
 import Budget from "./Budget";
-import Game from "./Game";
+import Shop from "./Shop";
 
 const Home = () => {
     return ( 
         <div className="home">
             <Budget />
+            <Shop />
         </div>
     );
 }
