@@ -11,9 +11,8 @@ const Budget = ({nuggets, setNuggets}) => {
         {id: 4, text: "Eating Out", budgetAmount: 100}]);
 
     const addRectangle = () => {
-        const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount};
+        const newRectangle = { id: rectangles.length, text: currentName, budgetAmount: budgetAmount};
         setRectangles([...rectangles, newRectangle]);
-        
     };
 
     const [isFormVisible, setIsFormVisible] = useState(false);
@@ -44,17 +43,11 @@ const Budget = ({nuggets, setNuggets}) => {
       return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {rectangles.map((rectangle) => (
-            <div className='buttons-together' style={{
-
-                display: 'flex',
-                alignItems: 'center'
-                }}>
             <BudgetItem
                 id={rectangle.id}
                 text = {rectangle.text}
                 budgetAmount = {rectangle.budgetAmount}
             />
-        </div>
           ))}
           <button className="add-button" type="button" onClick={openForm}>
             +
