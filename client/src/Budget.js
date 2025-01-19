@@ -11,14 +11,7 @@ const Budget = ({nuggets, setNuggets}) => {
         {id: 2, text: "Entertainment", budgetAmount: 100},
         {id: 3, text: "Groceries", budgetAmount: 100},
         {id: 4, text: "Eating Out", budgetAmount: 100}]);
-const Budget = ({ nuggets, setNuggets }) => {
-  const [rectangles, setRectangles] = useState([
-    { id: 0, text: "Rent/Utilities", budgetAmount: 100 },
-    { id: 1, text: "Education", budgetAmount: 100 },
-    { id: 2, text: "Entertainment", budgetAmount: 100 },
-    { id: 3, text: "Groceries", budgetAmount: 100 },
-    { id: 4, text: "Eating Out", budgetAmount: 100 }]);
-
+         
   const addRectangle = () => {
     const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount };
     setRectangles([...rectangles, newRectangle]);
