@@ -19,7 +19,6 @@ const Budget = ({nuggets, setNuggets}) => {
             var newId = 0;
         }
         const newRectangle = { id: newId, text: currentName, budgetAmount: budgetAmount};
-        console.log(newRectangle);
         setRectangles([...rectangles, newRectangle]);
     };
 
@@ -35,19 +34,12 @@ const Budget = ({nuggets, setNuggets}) => {
 
   const openForm = () => {
     setIsFormVisible(true);
+    console.log(rectangles);
   };
-
-  const openDeleteForm = () => {
-    setIsDeleteFormVisible(true);
-  }
 
   const closeForm = () => {
     setIsFormVisible(false);
   };
-
-  const closeDeleteForm = () => {
-    setIsDeleteFormVisible(false);
-  }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -63,6 +55,7 @@ const Budget = ({nuggets, setNuggets}) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {rectangles.map((rectangle) => (
             <BudgetItem
+                key={rectangle.id}
                 id={rectangle.id}
                 text={rectangle.text}
                 budgetAmount={rectangle.budgetAmount}
@@ -75,15 +68,6 @@ const Budget = ({nuggets, setNuggets}) => {
           </button>
 
       <div className="App">
-
-            {isFormVisible && (
-            <div className="form-popup">
-                <div className="form-container">
-                <h2>Add Budget Item</h2>
-                <form>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" id="name" name="name" required 
-                    text={currentName} onChange={handleNameSet}/>
         {isFormVisible && (
           <div className="form-popup">
             <div className="form-container">
@@ -96,32 +80,8 @@ const Budget = ({nuggets, setNuggets}) => {
                     <label htmlFor="name">Budgeted Amount</label>
                     <input type="number" id="budgetAmount" name="budgetAmount" required 
                     text={budgetAmount} onChange={handleBudgetChange}/>
-                <label htmlFor="name">Budgeted Amount</label>
-                <input type="number" id="budgetAmount" name="budgetAmount" required
-                  text={budgetAmount} onChange={handleBudgetChange} />
-
                 <button type="submit" className='form-btn' onClick={handleSubmit}>Submit</button>
                 <button type="button" className="cancel-btn form-btn" onClick={closeForm}>Close</button>
-              </form>
-            </div>
-          </div>
-        )}
-
-        {isDeleteFormVisible && (
-          <div className="form-popup">
-            <div className="form-container">
-              <h2>Remove Budget Item</h2>
-              <form>
-                <label htmlFor="name">Name to Remove</label>
-                <input type="text" id="name" name="name" required
-                  text={currentName} onChange={handleNameToRemove} />
-
-                {/* <label htmlFor="name">Budgeted Amount</label>
-                <input type="number" id="budgetAmount" name="budgetAmount" required
-                  text={budgetAmount} onChange={handleBudgetChange} /> */}
-
-                <button type="submit" className='form-btn' onClick={handleDeleteSubmit}>Submit</button>
-                <button type="button" className="cancel-btn form-btn" onClick={closeDeleteForm}>Close</button>
               </form>
             </div>
           </div>

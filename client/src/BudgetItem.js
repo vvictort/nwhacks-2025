@@ -68,6 +68,7 @@ const BudgetItem = (props) => {
     const setAmountsToZero = () => {
         setPutAmount(0);
     }
+
     const handleDelete = () => {
         props.setRectangles(props.rectangles.filter(rectangle => rectangle.id !== props.id))
     }
