@@ -103,10 +103,10 @@ const BudgetItem = (props) => {
             
         </button>
         
-        <div className="App">
+        <div className="modification-form">
 
         {isInputVisible && (
-            <form onSubmit={handleSubmit} style={{backgroundColor: "white"}}>
+            <form onSubmit={handleSubmit} style={{backgroundColor: "lightgray", padding:'0.75em', border:"1.5px dotted black"}}>
             <label htmlFor="name" style={{padding: '10px'}}>New name:</label>
             <input 
                 type="text" 
@@ -129,8 +129,11 @@ const BudgetItem = (props) => {
                 onChange={handleBudgetChange}
                 placeholder="Budget Amount" 
             /> */}
-            <button id="delete-budget" onClick={handleDelete}>Delete</button>
-            <button type="submit" onClick={updatePutState}>Submit</button>
+            <div style={{display:'flex', gap: '5px'}}> 
+                <button id="delete-budget" onClick={handleDelete}>Delete</button>
+                <button type="submit" id="submit-button" onClick={updatePutState}>Submit</button>
+            </div>
+            
             </form>
         )}
         </div>

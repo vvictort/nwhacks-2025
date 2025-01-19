@@ -44,10 +44,12 @@ const Home2 = () => {
                 <button className="home-button"><h3 style={{ marginTop: "0", marginBottom: "0" }}>Finance</h3></button>
                 <button className="home-button"><h3 style={{ marginTop: "0", marginBottom: "0" }}>Calendar</h3></button>
             </div>
+            
             <h2 style={{ textAlign: 'left', marginLeft: '-950px', marginBottom: '7px', marginTop: '0px', zIndex: '1' }}>My Wallet</h2>
             <div className="wallet-panel">
                 <p>Your Default Wallet</p>
             </div>
+            <div></div>
             <h2 style={{ textAlign: 'left', marginLeft: '-950px', marginBottom: '2px', marginTop: '4px', zIndex: '1' }}>Summary</h2>
             <div className="main-panel">
 
