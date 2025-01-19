@@ -1,4 +1,5 @@
-import './App.css'
+import './App.css';
+import "./Budget.css";
 import React, { useState } from 'react';
 
 const BudgetItem = (props) => {
@@ -8,7 +9,8 @@ const BudgetItem = (props) => {
 
     
     var newPut = 0;
-    const [buttonText, setButtonText] = useState("Click me");
+    const [overBudget, setOverBudget] = useState(false);
+     const [buttonText, setButtonText] = useState("Click me");
     const [putAmount, setPutAmount] = useState(0);
     const [budgetedAmount, setBudgetedAmount] = useState(0);
     const [inputText, setInputText] = useState("");
@@ -16,7 +18,7 @@ const BudgetItem = (props) => {
     const [changed, setChanged] = useState(false);
 
     const handleButtonClick = () => {
-        setIsInputVisible(true);
+        setIsInputVisible(!isInputVisible);
         if (!changed) {
             setInputText(props.text);
         }
@@ -53,33 +55,41 @@ const BudgetItem = (props) => {
     const updatePutState = () => {
         if (newPut != 0) {
             setPutAmount(newPut);
+            if (newPut > props.budgetAmount) {
+                setOverBudget(true);
+                alert("Gone over budget!");
+            }
         }
     }
+
+    
       
     return ( 
         <div>
+            
         <button type="button" onClick={handleButtonClick} 
             key={props.id}
             style={{
 
-            width: '200px',
-            height: '50px',
+            width: '12em',
+            height: '3em',
             backgroundColor: 'lightblue',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: '5px',
+            padding: "10px",
             }}
         >
-            {changed ? inputText : props.text} <br></br>
-            {putAmount}/{props.budgetAmount}
+            {changed ? inputText : props.text} <hr></hr>
+            <p style={{color: overBudget ? 'red' : 'black'}}>{putAmount}</p>/{props.budgetAmount}
+            
         </button>
-
         
         <div className="App">
 
         {isInputVisible && (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{backgroundColor: "white"}}>
             <label htmlFor="name">New name:</label>
             <input 
                 type="text" 
