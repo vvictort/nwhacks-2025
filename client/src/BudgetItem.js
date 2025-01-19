@@ -53,7 +53,7 @@ const BudgetItem = (props) => {
             }}
         >
             {changed ? inputText : props.text} <br></br>
-            {putAmount}/{budgetedAmount}
+            {putAmount}/{props.budgetAmount}
         </button>
 
         

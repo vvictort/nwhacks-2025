@@ -4,14 +4,14 @@ import BudgetItem from './BudgetItem';
 
 const Budget = () => {
     const [rectangles, setRectangles] = useState([
-        {id: 0, text: "Rent/Utilities"}, 
-        {id: 1, text: "Education"},
-        {id: 2, text: "Entertainment"},
-        {id: 3, text: "Groceries"},
-        {id: 4, text: "Eating Out"}]);
+        {id: 0, text: "Rent/Utilities", budgetAmount: 100}, 
+        {id: 1, text: "Education", budgetAmount: 100},
+        {id: 2, text: "Entertainment", budgetAmount: 100},
+        {id: 3, text: "Groceries", budgetAmount: 100},
+        {id: 4, text: "Eating Out", budgetAmount: 100}]);
 
     const addRectangle = () => {
-        const newRectangle = { id: rectangles.length + 1, text: `Budget Item ${rectangles.length + 1}`, budgetAmount: budgetAmount };
+        const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount};
         setRectangles([...rectangles, newRectangle]);
         
     };
@@ -36,6 +36,10 @@ const Budget = () => {
         event.preventDefault();
         addRectangle();
     };
+
+    const handleNameSet = (event) => {
+        setCurrentName(event.target.value);
+    };
       
       return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -43,7 +47,7 @@ const Budget = () => {
             <BudgetItem
                 id={rectangle.id}
                 text = {rectangle.text}
-                budgetAmount = {budgetAmount}
+                budgetAmount = {rectangle.budgetAmount}
             />
           ))}
           <button type="button" onClick={openForm}
@@ -68,7 +72,8 @@ const Budget = () => {
                 <h2>Add Budget Item</h2>
                 <form>
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" name="name" required />
+                    <input type="text" id="name" name="name" required 
+                    text = {currentName} onChange={handleNameSet}/>
 
                     <label htmlFor="name">Budgeted Amount</label>
                     <input type="number" id="budgetAmount" name="budgetAmount" required 
