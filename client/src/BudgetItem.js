@@ -1,4 +1,5 @@
-import './App.css'
+import './App.css';
+import "./Budget.css";
 import React, { useState } from 'react';
 
 const BudgetItem = (props) => {
