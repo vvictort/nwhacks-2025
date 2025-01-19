@@ -3,13 +3,13 @@ import Shop from "./Shop";
 import Character from "./Character";
 import { useState } from "react";
 
-const Home = ({nuggetAmount}) => {
+const Home = () => {
     const [charInfo, setCharInfo] = useState({
         "Sweater": false,
         "Fire": false,
         "Antlers": false
     });
-    const [nuggets, setNuggets] = useState(nuggetAmount);
+    const [nuggets, setNuggets] = useState(0);
     return (
         <div className="home">
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', height: '100vh' }}>
