@@ -15,7 +15,7 @@ const Home = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', height: '100vh' }}>
                 <Budget nuggets={nuggets} setNuggets={setNuggets} />
                 <Shop nuggets={nuggets} setNuggets={setNuggets} charInfo={charInfo} setCharInfo={setCharInfo} />
-                <Character charInfo={charInfo} />
+                <Character />
             </div>
         </div>
     );
