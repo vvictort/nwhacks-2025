@@ -32,30 +32,31 @@ const Shop = () => {
                 <h1>SHOP</h1>
                 <p>Balance: ${balance}</p>
 
-            <div style={{ display: "flex", flexDirection: 'column', gap: "15px" }}>
-                {items.map((item) => (
-                    <div key={item.id} style={{
-                        border: "1px solid #ddd",
-                        borderRadius: "8px",
-                        padding: "10px",
-                        width: "150px",
-                        textAlign: "center",
-                        backgroundColor: "#fff",
-                    }}>
-                        <h3>{item.name}</h3>
-                        <p>Price: ${item.price}</p>
-                        <button
-                            onClick={() => handlePurchase(item)}
-                            disabled={item.purchased}
-                            style={{
-                                padding: "8px 12px",
-                                backgroundColor: item.purchased ? "grey" : "green",
-                                color: "#fff",
+                <div style={{ display: "flex", flexDirection: 'column', gap: "15px" }}>
+                    {items.map((item) => (
+                        <div key={item.id} style={{
+                            border: "1px solid #ddd",
+                            borderRadius: "8px",
+                            padding: "10px",
+                            width: "150px",
+                            textAlign: "center",
+                            backgroundColor: "#fff",
                         }}>
-                            Buy
-                        </button>
-                    </div>
-                ))}
+                            <h3>{item.name}</h3>
+                            <p>Price: ${item.price}</p>
+                            <button
+                                onClick={() => handlePurchase(item)}
+                                disabled={item.purchased}
+                                style={{
+                                    padding: "8px 12px",
+                                    backgroundColor: item.purchased ? "grey" : "green",
+                                    color: "#fff",
+                            }}>
+                                Buy
+                            </button>
+                        </div>
+                    ))}
+                </div>
             </div>
 
         </div>
