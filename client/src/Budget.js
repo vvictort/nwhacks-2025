@@ -2,32 +2,24 @@ import React, { useState, useEffect } from 'react';
 
 import BudgetItem from './BudgetItem';
 
-const Budget = ({ nuggets, setNuggets }) => {
-  const today = new Date();
-  const date = today.getDate();
-  const [rectangles, setRectangles] = useState(() => {
-    const savedRectangles = localStorage.getItem('rectangles');
-    return savedRectangles ? JSON.parse(savedRectangles) : [
-      { id: 0, text: "Rent/Utilities", budgetAmount: 100 },
-      { id: 1, text: "Education", budgetAmount: 100 },
-      { id: 2, text: "Entertainment", budgetAmount: 100 },
-      { id: 3, text: "Groceries", budgetAmount: 100 },
-      { id: 4, text: "Eating Out", budgetAmount: 100 }
-    ];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('rectangles', JSON.stringify(rectangles));
-  }, [rectangles]);
-
+const Budget = ({nuggets, setNuggets}) => {
+    const today = new Date();
+    const date = today. getDate();
+    const [rectangles, setRectangles] = useState([
+        {id: 0, text: "Rent/Utilities", budgetAmount: 100, leftAmount: 100}, 
+        {id: 1, text: "Education", budgetAmount: 100, leftAmount: 100},
+        {id: 2, text: "Entertainment", budgetAmount: 100, leftAmount: 100},
+        {id: 3, text: "Groceries", budgetAmount: 100, leftAmount: 100},
+        {id: 4, text: "Eating Out", budgetAmount: 100, leftAmount: 100}]);
+         
   const addRectangle = () => {
-    if (rectangles.length != 0) {
-      var newId = rectangles[rectangles.length - 1].id + 1;
-    } else {
-      var newId = 0;
-    }
-    const newRectangle = { id: newId, text: currentName, budgetAmount: budgetAmount };
+    const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount, leftAmount: leftAmount};
     setRectangles([...rectangles, newRectangle]);
+  };
+
+  const removeRectangle = (nameToRemove) => {
+    setRectangles(rectangles.filter(rectangle => rectangle.text !== nameToRemove));
+    // console.log(rectangles);
   };
 
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -35,6 +27,7 @@ const Budget = ({ nuggets, setNuggets }) => {
   const [currentName, setCurrentName] = useState("");
   const [nameToRemove, setNameToRemove] = useState("");
   const [budgetAmount, setBudgetAmount] = useState(0);
+  const [leftAmount, setLeftAmount] = useState(0);
 
   const handleBudgetChange = (event) => {
     setBudgetAmount(event.target.value);
@@ -59,25 +52,34 @@ const Budget = ({ nuggets, setNuggets }) => {
     setCurrentName(event.target.value);
   };
 
+
+  const totalPutAmount = rectangles.reduce((sum, rectangle) => sum + rectangle.leftAmount, 0);
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      {date == 18 && (<h2>It's the start of a new month! Extra money has been put towards your goal.
+    {date == 1 && (<h2>It's the start of a new month! Extra money has been put towards your goal. 
         All amounts are reset</h2>)}
+
+        <h2>You still have ${totalPutAmount} that you can spend.</h2>
+
       {rectangles.map((rectangle) => (
         <BudgetItem
           key={rectangle.id}
           id={rectangle.id}
           text={rectangle.text}
           budgetAmount={rectangle.budgetAmount}
-          rectangles={rectangles}
-          setRectangles={setRectangles}
+          leftAmount = {rectangle.leftAmount}
+          rectangles = {rectangles}
+          setRectangles = {setRectangles}
         />
       ))}
       <button className="add-button" type="button" onClick={openForm}>
         +
       </button>
 
-      <div className="App">
+      <div className="Addition-Form">
+
         {isFormVisible && (
           <div className="form-popup">
             <div className="form-container">

@@ -1,6 +1,7 @@
 import './App.css';
 import "./Budget.css";
 import React, { useState } from 'react';
+import Budget from './Budget';
 
 const BudgetItem = (props) => {
     function clickMe() {
@@ -58,6 +59,11 @@ const BudgetItem = (props) => {
     const updatePutState = () => {
         if (newPut != 0) {
             setPutAmount(newPut);
+            props.setRectangles((prevRectangles) =>
+                prevRectangles.map((rectangle) =>
+                  rectangle.id === props.id ? { ...rectangle, leftAmount: newPut } : rectangle
+                )
+              );
             if (newPut < 0) {
                 setOverBudget(true);
                 alert("Gone over budget!");
@@ -65,8 +71,8 @@ const BudgetItem = (props) => {
         }
     }
 
-    const setAmountsToZero = () => {
-        setPutAmount(0);
+    const setAmountsToBase = () => {
+        setPutAmount(props.budgetAmount);
     }
 
     const handleDelete = () => {
@@ -76,7 +82,7 @@ const BudgetItem = (props) => {
       
     return ( 
         <div>
-        {date == 18 && setAmountsToZero}
+        {date == 1 && setAmountsToBase}
             
         <button type="button" onClick={handleButtonClick} 
             key={props.id}
