@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BudgetItem from './BudgetItem';
 
 const Budget = () => {
     const [rectangles, setRectangles] = useState([
@@ -14,7 +15,7 @@ const Budget = () => {
         setRectangles([...rectangles, newRectangle]);
     };
 
-      function clickMe() {
+    function clickMe() {
         alert("You clicked me!");
       }
       
