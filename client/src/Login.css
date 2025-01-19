@@ -1,4 +1,4 @@
-@import url('@fortawesome/fontawesome-free/css/all.min.css');
+/* @import url('@fortawesome/fontawesome-free/css/all.min.css'); */
 
 .background {
     width: 530px;
@@ -104,8 +104,6 @@ button:hover {
 ::placeholder {
     color: #353535;
 }
-
-
 
 .login label {
     font-size: 18px;
