@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Shop = () => {
+const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo}) => {
 
     const [balance, setBalance] = useState(() => {
         const savedBalance = localStorage.getItem('balance');

@@ -85,10 +85,10 @@ const Budget = ({ nuggets, setNuggets }) => {
               <form>
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" required
-                  text={currentName} onChange={handleNameSet} />
+                  text={currentName} onChange={handleNameSet} /><br/>
 
                 <label htmlFor="name">Budgeted Amount</label>
-                <input type="number" id="budgetAmount" name="budgetAmount" required
+                <input type="number" step="0.01" id="budgetAmount" name="budgetAmount" required
                   text={budgetAmount} onChange={handleBudgetChange} />
                 <button type="submit" className='form-btn' onClick={handleSubmit}>Submit</button>
                 <button type="button" className="cancel-btn form-btn" onClick={closeForm}>Close</button>

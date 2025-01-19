@@ -93,7 +93,7 @@ const BudgetItem = (props) => {
             }}
         >
             {changed ? inputText : props.text} <hr></hr>
-            <p style={{color: overBudget ? 'red' : 'black'}}>{putAmount}</p>/{props.budgetAmount}
+            <p style={{color: overBudget ? 'red' : 'black'}}>{putAmount}$</p>/{props.budgetAmount}$
             
         </button>
         
@@ -112,6 +112,7 @@ const BudgetItem = (props) => {
             <label htmlFor="sub-amount" style={{padding: '10px'}}>Amount spent:</label>
             <input 
                 type="number" 
+                step="0.01"
                 id="sub-amount"
                 onChange={handlePutChange}
                 placeholder="Amount spent" 
