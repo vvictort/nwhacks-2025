@@ -5,15 +5,15 @@ import { useState } from "react";
 
 const Home = () => {
     const [charInfo, setCharInfo] = useState({
-        "sweater": "true",
-        "flame": "true",
-        "horns": "true"
+        "sweater": "false",
+        "flame": "false",
+        "horns": "false"
     });
     const [nuggets, setNuggets] = useState(0);
     return ( 
         <div className="home">
             <Budget nuggets={nuggets} setNuggets={setNuggets}/>
-            <Character charInfo={charInfo} setCharInfo={setCharInfo}/>
+            <Character charInfo={charInfo}/>
         </div>
     );
 }

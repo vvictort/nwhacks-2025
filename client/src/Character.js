@@ -4,7 +4,7 @@ import clothingSprite1 from './sprites/1.png';
 import clothingSprite2 from './sprites/2.png';
 import clothingSprite3 from './sprites/3.png';
 
-const Character = ({ charInfo, setCharInfo }) => { 
+const Character = ({ charInfo }) => { 
     
     return ( 
         <div className="character" style={{zIndex: "-1"}}>
