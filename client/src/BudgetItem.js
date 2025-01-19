@@ -23,6 +23,9 @@ const BudgetItem = (props) => {
 
     const handleButtonClick = () => {
         setIsInputVisible(true);
+        if (!changed) {
+            setInputText(props.text);
+        }
     };
 
     const handleInputChange = (event) => {
@@ -58,6 +61,7 @@ const BudgetItem = (props) => {
             {changed ? inputText : props.text}
         </button>
 
+
         <div className="App">
 
         {isInputVisible && (
@@ -68,7 +72,7 @@ const BudgetItem = (props) => {
                 onChange={handleInputChange}
                 placeholder="Enter new button text" 
             />
-            <button type="submit">Close</button>
+            <button type="submit">Submit</button>
             </form>
         )}
         </div>
