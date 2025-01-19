@@ -1,17 +1,15 @@
+import React, { useState } from 'react';
+
 const Budget = () => {
-    const countID = 4;
-    const rectangles = [
-        { id: 1, text: 'Rectangle 1' },
-        { id: 2, text: 'Rectangle 2' },
-        { id: 3, text: 'Rectangle 3' },
-      ];
+    const [rectangles, setRectangles] = useState([]);
+
+    const addRectangle = () => {
+        const newRectangle = { id: rectangles.length + 1, text: `Rectangle ${rectangles.length + 1}` };
+        setRectangles([...rectangles, newRectangle]);
+    };
 
       function clickMe() {
         alert("You clicked me!");
-      }
-
-      function addRectangle() {
-        rectangles.push({id: countID, text: "Rectangle "});
       }
       
       return (
