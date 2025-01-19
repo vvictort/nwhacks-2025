@@ -26,10 +26,11 @@ const Shop = () => {
         }
     };
 
-    return ( 
-        <div style={{ display: 'flex', flexDirection: 'column', width: '200px', backgroundColor: 'lightblue', alignItems: 'center' }}>
-            <h1>SHOP</h1>
-            <p>Balance: ${balance}</p>
+    return (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', height: '100vh' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', width: '200px', backgroundColor: 'lightblue', alignItems: 'center' }}>
+                <h1>SHOP</h1>
+                <p>Balance: ${balance}</p>
 
             <div style={{ display: "flex", flexDirection: 'column', gap: "15px" }}>
                 {items.map((item) => (
@@ -60,5 +61,5 @@ const Shop = () => {
         </div>
     );
 }
- 
+
 export default Shop;

@@ -9,10 +9,13 @@ const BudgetItem = (props) => {
 
     
     var newPut = 0;
+    const today = new Date();
+    const date = today. getDate();
+
     const [overBudget, setOverBudget] = useState(false);
      const [buttonText, setButtonText] = useState("Click me");
-    const [putAmount, setPutAmount] = useState(0);
     const [budgetedAmount, setBudgetedAmount] = useState(0);
+    const [putAmount, setPutAmount] = useState(props.budgetAmount);
     const [inputText, setInputText] = useState("");
     const [isInputVisible, setIsInputVisible] = useState(false);
     const [changed, setChanged] = useState(false);
@@ -45,7 +48,7 @@ const BudgetItem = (props) => {
 
     const handlePutChange = (event) => {
         if (event.target.value) {
-            newPut = Number(event.target.value) + putAmount;
+            newPut =  putAmount - Number(event.target.value);
         } else {
             newPut = putAmount;
         }
@@ -55,17 +58,21 @@ const BudgetItem = (props) => {
     const updatePutState = () => {
         if (newPut != 0) {
             setPutAmount(newPut);
-            if (newPut > props.budgetAmount) {
+            if (newPut < 0) {
                 setOverBudget(true);
                 alert("Gone over budget!");
             }
         }
     }
 
+    const setAmountsToZero = () => {
+        setPutAmount(0);
+    }
     
       
     return ( 
         <div>
+        {date == 18 && setAmountsToZero}
             
         <button type="button" onClick={handleButtonClick} 
             key={props.id}
@@ -90,7 +97,7 @@ const BudgetItem = (props) => {
 
         {isInputVisible && (
             <form onSubmit={handleSubmit} style={{backgroundColor: "white"}}>
-            <label htmlFor="name">New name:</label>
+            <label htmlFor="name" style={{padding: '10px'}}>New name:</label>
             <input 
                 type="text" 
                 id="name"
@@ -98,12 +105,12 @@ const BudgetItem = (props) => {
                 onChange={handleInputChange}
                 placeholder="New name" 
             />
-            <label htmlFor="add-amount">Add amount towards budget:</label>
+            <label htmlFor="sub-amount" style={{padding: '10px'}}>Amount spent:</label>
             <input 
                 type="number" 
-                id="add-amount"
+                id="sub-amount"
                 onChange={handlePutChange}
-                placeholder="Amount towards budget" 
+                placeholder="Amount spent" 
             />
             {/* <input 
                 type="number" 
