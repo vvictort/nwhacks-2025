@@ -4,12 +4,8 @@ import clothingSprite1 from './sprites/1.png';
 import clothingSprite2 from './sprites/2.png';
 import clothingSprite3 from './sprites/3.png';
 
-const Character = () => { 
-    const [charInfo, setCharInfo] = useState({
-        "sweater": "true",
-        "flame": "true",
-        "horns": "true"
-    });
+const Character = ({ charInfo, setCharInfo }) => { 
+    
     return ( 
         <div className="character">
             <img className="character-image" src={characterSprite}/>

@@ -1,11 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RedirectPage from "./RedirectPage";
 import Login from "./Login";
 import Home from "./Home";
-import Budget from './Budget';
-import Game from './Game';
 
 function App() {
   return (

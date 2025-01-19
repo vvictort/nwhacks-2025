@@ -56,18 +56,8 @@ const Budget = ({nuggets, setNuggets}) => {
             />
         </div>
           ))}
-          <button type="button" onClick={openForm}
-          style={{
-
-            width: '40px',
-            height: '40px',
-            backgroundColor: 'white',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: '5px',
-          }}
-          >+
+          <button className="add-button" type="button" onClick={openForm}>
+            +
           </button>
 
           <div className="App">
