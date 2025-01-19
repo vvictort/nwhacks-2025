@@ -36,7 +36,7 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo }) => {
     // }, [items]);
 
     // const updateNumNuggets = () => {
-    //     setLocalBalance(balance);
+    //     setLocalBalance(nuggets);
     // }
 
     const handlePurchase = (item) => {

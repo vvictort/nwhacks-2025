@@ -48,7 +48,7 @@ const BudgetItem = (props) => {
     // }
 
     const handlePutChange = (event) => {
-        if (event.target.value) {
+        if (event.target.value && event.target.value >= 0) {
             newPut =  putAmount - Number(event.target.value);
         } else {
             newPut = putAmount;
@@ -96,6 +96,7 @@ const BudgetItem = (props) => {
             alignItems: 'center',
             borderRadius: '5px',
             padding: "10px",
+            cursor: 'pointer',
             }}
         >
             {changed ? inputText : props.text} <hr></hr>
@@ -119,6 +120,7 @@ const BudgetItem = (props) => {
             <input 
                 type="number" 
                 step="0.01"
+                min="0"
                 id="sub-amount"
                 onChange={handlePutChange}
                 placeholder="Amount spent" 
