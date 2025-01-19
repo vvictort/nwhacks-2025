@@ -56,7 +56,9 @@ const Home2 = () => {
             </div>
             <Character></Character>
             <h2 style={{ textAlign: 'left', marginLeft: '-800px', marginBottom: '0px', marginTop: '15px', zIndex: '1' }}>Categories of Expense</h2>
+            
             <div className="categories">
+            <h5>(The amount that you have spent / amount that you have budgeted for)</h5>
             <Budget/>
             </div>
             <Shop></Shop>

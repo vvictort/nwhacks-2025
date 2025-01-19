@@ -43,7 +43,7 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo }) => {
         if (balance >= item.price) {
             const newBalance = balance - item.price;
             setBalance(newBalance);
-            setBalance('balance', JSON.stringify(newBalance));
+            // setBalance('balance', JSON.stringify(newBalance));
             alert(`Slyther is now equipped with the ${item.name}!`);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>

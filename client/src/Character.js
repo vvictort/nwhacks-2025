@@ -34,7 +34,7 @@ const Character = () => {
     }, [items]);
 
     return (
-        <div className="character" style={{ zIndex: "-1" }}>
+        <div className="character" style={{ zIndex: "3", position: 'absolute', left: '48em'}}>
             <img className="character-image" src={characterSprite} />
             {charInfo.Antlers && <img className="character-image" src={clothingSprite3} />}
             {charInfo.Sweater && <img className="character-image" src={clothingSprite1} />}
