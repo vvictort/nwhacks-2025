@@ -64,15 +64,15 @@ const Budget = ({nuggets, setNuggets}) => {
   const numNuggets = numberMet * 10 + (rectangles.length - numberMet) * (-25);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', zIndex: 0}}>
     {date == 18 && (<h2>It's the start of a new month! You met your budget for {numberMet} budget goals. 
         You failed to meet {rectangles.length - numberMet} budget goals. Total nuggets distribution for this month: {numNuggets}. 
         All amounts are reset</h2>)}
     {date == 18 && distributeNuggets}
 
-        <h2>You still have ${totalPutAmount} left that you can spend.</h2>
+        {/* <h2>You still have ${totalPutAmount} left that you can spend.</h2>
         {numberMet == rectangles.length && (<div><h2>You are meeting {numberMet} of your budget goals</h2> <h2>Slyther is happy.</h2> </div>)}
-        {numberMet < rectangles.length && (<div><h2>You did not meet all of your budget goals</h2> <h2>Slyther is sad.</h2> </div>)}
+        {numberMet < rectangles.length && (<div><h2>You did not meet all of your budget goals</h2> <h2>Slyther is sad.</h2> </div>)} */}
 
       {rectangles.map((rectangle) => (
         <BudgetItem

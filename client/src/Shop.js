@@ -3,9 +3,10 @@ import useLocalStorage from "use-local-storage";
 import ShopItem from "./components/ShopItem";
 import "./Shop.css";
 
-const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo }) => {
+const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo }) => {
 
     const [items, setItems] = useLocalStorage("items", []);
+    const [balance, setBalance] = useLocalStorage("balance", nuggets)
     const today = new Date();
     const date = today.getDate();
 
@@ -18,30 +19,30 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo 
                 { id: 2, name: "Fire", price: 500, purchased: false }
             ])
         }
+
+        if (balance == null) {
+            setBalance(10000);
+        }
     }, []);
 
-    const [localBalance, setLocalBalance] = useState(() => {
-        const savedBalance = localStorage.getItem('balance');
-        return savedBalance ? JSON.parse(savedBalance) : balance;
-    });
 
-    useEffect(() => {
-        localStorage.setItem('balance', JSON.stringify(localBalance));
-    }, [localBalance]);
+    // useEffect(() => {
+    //     setBalance('balance', JSON.stringify(balance));
+    // }, [balance]);
 
     // useEffect(() => {
     //     setItems('items', items);
     // }, [items]);
 
-    const updateNumNuggets = () => {
-        setLocalBalance(balance);
-    }
+    // const updateNumNuggets = () => {
+    //     setLocalBalance(balance);
+    // }
 
     const handlePurchase = (item) => {
         if (balance >= item.price) {
             const newBalance = balance - item.price;
-            setLocalBalance(newBalance);
-            localStorage.setItem('balance', JSON.stringify(newBalance));
+            setBalance(newBalance);
+            setBalance('balance', JSON.stringify(newBalance));
             alert(`You bought the ${item.name}!`);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
@@ -57,9 +58,9 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo 
 
     return (
         <div className="shop">
-            {date == 18 && updateNumNuggets}
+            {/* {date == 18 && updateNumNuggets} */}
             <h2 className="shop-header">SHOP</h2>
-            <p className="shop-balance">Balance: ${localBalance} nuggets</p>
+            <p className="shop-balance">Balance: ${balance} nuggets</p>
             <div className="shop-items">
                 {items.map((item) => (
                     <ShopItem item={item} handlePurchase={handlePurchase}></ShopItem>
