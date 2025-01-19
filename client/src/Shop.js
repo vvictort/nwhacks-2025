@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo}) => {
-
-    const [balance, setBalance] = useState(() => {
-        const savedBalance = localStorage.getItem('balance');
-        return savedBalance ? JSON.parse(savedBalance) : 1000;
-    });
+const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo }) => {
 
     const [items, setItems] = useState(() => {
         const savedItems = localStorage.getItem('items');
@@ -16,9 +11,14 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo}) => {
         ];
     });
 
+    const [localBalance, setLocalBalance] = useState(() => {
+        const savedBalance = localStorage.getItem('balance');
+        return savedBalance ? JSON.parse(savedBalance) : balance;
+    });
+
     useEffect(() => {
-        localStorage.setItem('balance', JSON.stringify(balance));
-    }, [balance]);
+        localStorage.setItem('balance', JSON.stringify(localBalance));
+    }, [localBalance]);
 
     useEffect(() => {
         localStorage.setItem('items', JSON.stringify(items));
@@ -26,13 +26,10 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo}) => {
 
     const handlePurchase = (item) => {
         if (balance >= item.price) {
-            setBalance(balance - item.price);
+            const newBalance = balance - item.price;
+            setLocalBalance(newBalance);
+            localStorage.setItem('balance', JSON.stringify(newBalance));
             alert(`You bought the ${item.name}!`);
-            setCharInfo((prevState) => ({
-                ...prevState,
-                [item.name]: true,
-            }));
-            console.log(charInfo);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
                     currentItem.id === item.id
@@ -49,7 +46,7 @@ const Shop = ({ nuggets, setNuggets, charInfo, setCharInfo}) => {
         <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', height: '100vh' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '200px', backgroundColor: 'lightblue', alignItems: 'center' }}>
                 <h1>SHOP</h1>
-                <p>Balance: {balance} nuggets</p>
+                <p>Balance: ${localBalance} nuggets</p>
 
                 <div style={{ display: "flex", flexDirection: 'column', gap: "15px" }}>
                     {items.map((item) => (
