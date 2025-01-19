@@ -55,8 +55,7 @@ const Budget = ({nuggets, setNuggets}) => {
   };
 
   const distributeNuggets = () => {
-    <Shop 
-    nuggets={numNuggets} />
+ 
   };
 
   const totalPutAmount = rectangles.reduce((sum, rectangle) => sum + rectangle.leftAmount, 0);
@@ -69,10 +68,6 @@ const Budget = ({nuggets, setNuggets}) => {
         You failed to meet {rectangles.length - numberMet} budget goals. Total nuggets distribution for this month: {numNuggets}. 
         All amounts are reset</h2>)}
     {date == 18 && distributeNuggets}
-
-        {/* <h2>You still have ${totalPutAmount} left that you can spend.</h2>
-        {numberMet == rectangles.length && (<div><h2>You are meeting {numberMet} of your budget goals</h2> <h2>Slyther is happy.</h2> </div>)}
-        {numberMet < rectangles.length && (<div><h2>You did not meet all of your budget goals</h2> <h2>Slyther is sad.</h2> </div>)} */}
 
       {rectangles.map((rectangle) => (
         <BudgetItem
@@ -112,6 +107,12 @@ const Budget = ({nuggets, setNuggets}) => {
           </div>
         )}
       </div>
+      <div>
+        <h4>You still have ${totalPutAmount} left that you can spend.</h4> 
+        {numberMet == rectangles.length && (<div><h4>You are meeting {numberMet} of your budget goals.</h4> <h4>Slyther is happy.</h4> </div>)}
+        {numberMet < rectangles.length && (<div><h2>You did not meet all of your budget goals</h2> <h2>Slyther is sad.</h2> </div>)}
+        </div>
+      
 
     </div>
 

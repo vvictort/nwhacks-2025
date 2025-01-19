@@ -96,6 +96,7 @@ const BudgetItem = (props) => {
             alignItems: 'center',
             borderRadius: '5px',
             padding: "10px",
+            cursor: 'pointer',
             }}
         >
             {changed ? inputText : props.text} <hr></hr>
