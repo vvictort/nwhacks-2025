@@ -31,6 +31,10 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo 
     //     setItems('items', items);
     // }, [items]);
 
+    const updateNumNuggets = () => {
+        setLocalBalance(balance);
+    }
+
     const handlePurchase = (item) => {
         if (balance >= item.price) {
             const newBalance = balance - item.price;
@@ -51,6 +55,7 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo 
 
     return (
         <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', height: '100vh' }}>
+            {date == 18 && updateNumNuggets}
             <div style={{ display: 'flex', flexDirection: 'column', width: '200px', backgroundColor: 'lightblue', alignItems: 'center' }}>
                 <h1>SHOP</h1>
                 <p>Balance: ${localBalance} nuggets</p>
