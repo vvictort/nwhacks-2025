@@ -18,7 +18,7 @@ const BudgetItem = (props) => {
     const [changed, setChanged] = useState(false);
 
     const handleButtonClick = () => {
-        setIsInputVisible(true);
+        setIsInputVisible(!isInputVisible);
         if (!changed) {
             setInputText(props.text);
         }
@@ -89,7 +89,7 @@ const BudgetItem = (props) => {
         <div className="App">
 
         {isInputVisible && (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{backgroundColor: "white"}}>
             <label htmlFor="name">New name:</label>
             <input 
                 type="text" 
