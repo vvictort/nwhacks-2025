@@ -44,11 +44,17 @@ const Budget = ({nuggets, setNuggets}) => {
       return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {rectangles.map((rectangle) => (
+            <div className='buttons-together' style={{
+
+                display: 'flex',
+                alignItems: 'center'
+                }}>
             <BudgetItem
                 id={rectangle.id}
                 text = {rectangle.text}
                 budgetAmount = {rectangle.budgetAmount}
             />
+        </div>
           ))}
           <button type="button" onClick={openForm}
           style={{

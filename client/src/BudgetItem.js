@@ -55,9 +55,12 @@ const BudgetItem = (props) => {
             setPutAmount(newPut);
         }
     }
+
+    
       
     return ( 
         <div>
+            
         <button type="button" onClick={handleButtonClick} 
             key={props.id}
             style={{
@@ -74,7 +77,6 @@ const BudgetItem = (props) => {
             {changed ? inputText : props.text} <br></br>
             {putAmount}/{props.budgetAmount}
         </button>
-
         
         <div className="App">
 
