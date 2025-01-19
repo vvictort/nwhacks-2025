@@ -9,7 +9,7 @@ const Home = () => {
         "Fire": false,
         "Antlers": false
     });
-    const [nuggets, setNuggets] = useState(0);
+    const [nuggets, setNuggets] = useState(10000); // Alvin pls change later
     return (
         <div className="home">
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', height: '100vh' }}>

@@ -5,7 +5,8 @@ import ShopItem from "./components/ShopItem";
 const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo }) => {
 
     const [items, setItems] = useLocalStorage("items", []);
-
+    const today = new Date();
+    const date = today.getDate();
 
     useEffect(() => {
         // onload set localstorage data
