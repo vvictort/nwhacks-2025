@@ -1,5 +1,5 @@
 # nwhacks-2025
 
 - **Front-End**: ReactJS
-- **Back-End**: NodeJS 
+- **Back-End** (attempted): NodeJS 
   - Framework: ExpressJS
