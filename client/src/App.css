@@ -85,3 +85,7 @@ button:hover {
   width: 200px;
   height: auto;
 }
+
+* {
+  font-family: "Quicksand";
+}

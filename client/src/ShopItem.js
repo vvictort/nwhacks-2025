@@ -6,9 +6,9 @@ const ShopItem = ({ item, handlePurchase }) => {
             border: "1px solid #ddd",
             borderRadius: "10px",
             padding: "10px",
-            width: "85px",
+            width: "200px",
             textAlign: "center",
-            backgroundColor: "#fff",
+            backgroundColor: "#e3e3e3",
             transition: "box-shadow 0.3s ease",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.05)"
         }}>
