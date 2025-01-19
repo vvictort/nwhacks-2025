@@ -9,7 +9,35 @@ body {
     padding: 0;
 }
 
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    /* 2/3 of the screen horizontally */
+    height: 100vh;
+    /* Full height of the screen */
+    background-color: #d3d3d3;
+    /* background-color: lightgreen; */
+    /* Light grey background */
+    z-index: 0;
+    /* Ensure it is behind other elements */
+}
 
+.logo {
+    position: absolute;
+    top: -10px;
+    /* Adjust top position as needed */
+    left: 20px;
+    /* Adjust left position as needed */
+}
+
+.logo img {
+    width: 100px;
+    /* Adjust size as needed */
+    /* height: auto; */
+    /* Maintain aspect ratio */
+}
 
 .profile-picture {
     width: 55px;
@@ -137,7 +165,7 @@ body {
     /* Black text color */
     border: none;
     /* Green border */
-    border-radius: 5px;
+    border-radius: 10px;
     /* Rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;

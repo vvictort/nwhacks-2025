@@ -4,7 +4,7 @@ import Character from "./Character";
 import { useState } from "react";
 import "./Home2.css";
 import profileImage from "./images.jpg"; // Import the image
-
+import logoImage from "./sprites/base.png";
 
 const Home2 = () => {
     const [charInfo, setCharInfo] = useState({
@@ -17,6 +17,8 @@ const Home2 = () => {
 
     return (
         <div className="home">
+            <div className="background"></div>
+            <div className="logo"><img src={logoImage} alt="Logo"></img></div>
             <div className="profile-picture">
                 <img src={profileImage} alt="Profile" />
             </div>
@@ -41,16 +43,16 @@ const Home2 = () => {
                 <button className="home-button"><h3 style={{ marginTop: "0", marginBottom: "0" }}>Finance</h3></button>
                 <button className="home-button"><h3 style={{ marginTop: "0", marginBottom: "0" }}>Calendar</h3></button>
             </div>
-            <h2 style={{ textAlign: 'left', marginLeft: '-950px', marginBottom: '7px', marginTop: '0px' }}>My Wallet</h2>
+            <h2 style={{ textAlign: 'left', marginLeft: '-950px', marginBottom: '7px', marginTop: '0px', zIndex: '1' }}>My Wallet</h2>
             <div className="wallet-panel">
                 <p>Your Default Wallet</p>
             </div>
-            <h2 style={{ textAlign: 'left', marginLeft: '-950px', marginBottom: '2px', marginTop: '4px' }}>Summary</h2>
+            <h2 style={{ textAlign: 'left', marginLeft: '-950px', marginBottom: '2px', marginTop: '4px', zIndex: '1' }}>Summary</h2>
             <div className="main-panel">
 
             </div>
             {/* <Character></Character> */}
-            <h2 style={{ textAlign: 'left', marginLeft: '-800px', marginBottom: '0px', marginTop: '15px' }}>Categories of Expense</h2>
+            <h2 style={{ textAlign: 'left', marginLeft: '-800px', marginBottom: '0px', marginTop: '15px', zIndex: '1' }}>Categories of Expense</h2>
             <div className="categories">
 
             </div>
