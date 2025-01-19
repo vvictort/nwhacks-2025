@@ -1,4 +1,5 @@
 import Budget from "./Budget";
+import Game from "./Game";
 
 const Home = () => {
     return ( 
