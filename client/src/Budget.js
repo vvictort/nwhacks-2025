@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import BudgetItem from './BudgetItem';
 
 const Budget = ({ nuggets, setNuggets }) => {
   const today = new Date();
   const date = today.getDate();
-  const [rectangles, setRectangles] = useState([
-    { id: 0, text: "Rent/Utilities", budgetAmount: 100 },
-    { id: 1, text: "Education", budgetAmount: 100 },
-    { id: 2, text: "Entertainment", budgetAmount: 100 },
-    { id: 3, text: "Groceries", budgetAmount: 100 },
-    { id: 4, text: "Eating Out", budgetAmount: 100 }]);
+  const [rectangles, setRectangles] = useState(() => {
+    const savedRectangles = localStorage.getItem('rectangles');
+    return savedRectangles ? JSON.parse(savedRectangles) : [
+      { id: 0, text: "Rent/Utilities", budgetAmount: 100 },
+      { id: 1, text: "Education", budgetAmount: 100 },
+      { id: 2, text: "Entertainment", budgetAmount: 100 },
+      { id: 3, text: "Groceries", budgetAmount: 100 },
+      { id: 4, text: "Eating Out", budgetAmount: 100 }
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('rectangles', JSON.stringify(rectangles));
+  }, [rectangles]);
 
   const addRectangle = () => {
     if (rectangles.length != 0) {

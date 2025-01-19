@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo}) => {
+const Shop = () => {
 
-    
+    const [balance, setBalance] = useState(() => {
+        const savedBalance = localStorage.getItem('balance');
+        return savedBalance ? JSON.parse(savedBalance) : 1000;
+    });
 
-    const [items, setItems] = useState([
-        { id: 0, name: "Antlers", price: 100, purchased: false },
-        { id: 1, name: "Sweater", price: 200, purchased: false},
-        { id: 2, name: "Fire", price: 500, purchased: false }
-    ]);
+    const [items, setItems] = useState(() => {
+        const savedItems = localStorage.getItem('items');
+        return savedItems ? JSON.parse(savedItems) : [
+            { id: 0, name: "Antlers", price: 100, purchased: false },
+            { id: 1, name: "Sweater", price: 200, purchased: false },
+            { id: 2, name: "Fire", price: 500, purchased: false }
+        ];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('balance', JSON.stringify(balance));
+    }, [balance]);
+
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(items));
+    }, [items]);
 
     const handlePurchase = (item) => {
         if (balance >= item.price) {
@@ -21,9 +35,9 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo}
             console.log(charInfo);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
-                  currentItem.id === item.id
-                    ? { ...currentItem, purchased: true }
-                    : currentItem
+                    currentItem.id === item.id
+                        ? { ...currentItem, purchased: true }
+                        : currentItem
                 )
             );
         } else {
@@ -56,7 +70,7 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo}
                                     padding: "8px 12px",
                                     backgroundColor: item.purchased ? "grey" : "green",
                                     color: "#fff",
-                            }}>
+                                }}>
                                 Buy
                             </button>
                         </div>
