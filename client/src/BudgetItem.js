@@ -9,6 +9,9 @@ const BudgetItem = (props) => {
 
     
     var newPut = 0;
+    const today = new Date();
+    const date = today. getDate();
+
     const [overBudget, setOverBudget] = useState(false);
      const [buttonText, setButtonText] = useState("Click me");
     const [putAmount, setPutAmount] = useState(0);
@@ -62,10 +65,14 @@ const BudgetItem = (props) => {
         }
     }
 
+    const setAmountsToZero = () => {
+        setPutAmount(0);
+    }
     
       
     return ( 
         <div>
+        {date == 18 && setAmountsToZero}
             
         <button type="button" onClick={handleButtonClick} 
             key={props.id}

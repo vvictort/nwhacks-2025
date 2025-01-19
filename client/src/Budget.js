@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import BudgetItem from './BudgetItem';
 
 const Budget = ({nuggets, setNuggets}) => {
+    const today = new Date();
+    const date = today. getDate();
     const [rectangles, setRectangles] = useState([
         {id: 0, text: "Rent/Utilities", budgetAmount: 100}, 
         {id: 1, text: "Education", budgetAmount: 100},
@@ -41,7 +43,10 @@ const Budget = ({nuggets, setNuggets}) => {
     };
       
       return (
+        
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        {date == 18 && (<h2>It's the first day of the month! Change your budget accordingly. All past amounts are reset to 0.</h2>)}
+        
           {rectangles.map((rectangle) => (
             <BudgetItem
                 id={rectangle.id}
