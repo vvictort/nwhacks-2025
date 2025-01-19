@@ -17,6 +17,7 @@ const Home2 = () => {
 
     return (
         <div className="home">
+            
             <div className="background"></div>
             <div className="logo"><img src={logoImage} alt="Logo"></img></div>
             <div className="profile-picture">
@@ -51,13 +52,14 @@ const Home2 = () => {
             <div className="main-panel">
 
             </div>
-            {/* <Character></Character> */}
+            <Character></Character>
             <h2 style={{ textAlign: 'left', marginLeft: '-800px', marginBottom: '0px', marginTop: '15px', zIndex: '1' }}>Categories of Expense</h2>
             <div className="categories">
-
+            <Budget/>
             </div>
             <Shop></Shop>
-
+            
+            
         </div>
     );
 }
