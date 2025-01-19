@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Use modern font */
+    background-color: #f0f0f0;
+    /* Light background color for the home page */
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.profile-picture {
+    width: 55px;
+    /* Adjust size as needed */
+    height: 55px;
+    /* Adjust size as needed */
+    border-radius: 50%;
+    /* Make it a circle */
+    overflow: hidden;
+    /* Ensure the image fits within the circle */
+    border: 2px solid #ccc;
+    /* Optional: border for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: shadow for a modern look */
+    position: absolute;
+    /* Position the profile picture absolutely */
+    top: 20px;
+    /* Adjust top position as needed */
+    right: 20px;
+    /* Align to the right */
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the image covers the entire circle */
+}
+
+.icon {
+    font-size: 1.5em;
+    /* Adjust icon size as needed */
+    color: #666;
+    /* Icon color */
+    cursor: pointer;
+    position: absolute;
+    /* Position the icons absolutely */
+    top: 20px;
+    /* Align with the profile picture */
+}
+
+.inbox-icon {
+    right: 130px;
+    top: 35px;
+    /* Adjust right position as needed */
+}
+
+.notification-icon {
+    right: 200px;
+    top: 35px;
+    /* Adjust right position as needed */
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.search-bar-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+    margin-left: -50%;
+    /* Move the search bar container slightly to the left */
+}
+
+.search-bar-wrapper {
+    position: relative;
+    width: 30%;
+    /* Reasonable size for the search bar */
+}
+
+.search-icon {
+    position: absolute;
+    left: 5px;
+    top: 16%;
+    transform: translateY(-50%, -50%);
+    font-size: 1.2em;
+    /* Adjust icon size if needed */
+    color: #ccc;
+    /* Icon color */
+    z-index: 1;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 7px 10px 7px 30px;
+    /* Adjust padding to change height and make space for the icon */
+    border-radius: 10px;
+    /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    /* Glass blur effect */
+    font-size: 1em;
+    /* Adjust font size if needed */
+    color: #333;
+    /* Text color */
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Space between buttons */
+    margin-bottom: 0px;
+    /* Space below the buttons */
+    position: relative;
+    /* Enable positioning with top and left */
+    top: -45px;
+    left: 65px;
+}
+
+.home-button {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.4);
+    /* Slightly translucent background */
+    backdrop-filter: blur(10px);
+    /* Blur effect */
+    color: black;
+    /* Black text color */
+    border: none;
+    /* Green border */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transitions */
+}
+
+.home-button:hover {
+    background-color: rgba(76, 175, 80, 0.5);
+    /* Translucent light green on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Slight shadow on hover */
+}
+
+.main-panel,
+.categories,
+.wallet-panel {
+    background: rgba(255, 255, 255, 0.1);
+    /* Glass blur effect */
+    backdrop-filter: blur(10px);
+    /* Glass blur effect */
+    padding: 10px;
+    /* Optional: padding for content */
+    border-radius: 10px;
+    /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: shadow for a modern look */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 5px;
+    /* Space between the main panel and other elements */
+}
+
+.main-panel {
+    width: 67%;
+    /* Same width as the categories container */
+    height: 200px;
+    /* Adjust height as needed */
+    margin-top: 10px;
+    /* Move the main panel down a little */
+    align-self: flex-start;
+    /* Move the main panel to the left */
+}
+
+.categories {
+    position: absolute;
+    bottom: 100px;
+    /* Adjust as needed */
+    left: 20px;
+    /* Adjust as needed */
+    width: 65%;
+    /* Same width as the main panel */
+    height: 100px;
+    margin-top: 0px;
+}
+
+.wallet-panel {
+    width: 20%;
+    /* Adjust width as needed */
+    height: 40px;
+    /* Adjust height as needed */
+    background: rgba(255, 255, 255, 0.1);
+    /* Glass blur effect */
+    backdrop-filter: blur(10px);
+    /* Glass blur effect */
+    padding: 10px;
+    /* Optional: padding for content */
+    border-radius: 10px;
+    /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: shadow for a modern look */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 0px;
+    /* Space above the wallet panel */
+    align-self: flex-start;
+    /* Move the wallet panel to the left */
+}
+
+.wallet-panel p {
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+    padding-top: 1;
+    /* Remove padding at the top */
+    color: #666;
+    /* Dimmer color */
+    font-size: 0.8em;
+    /* Slightly smaller font size */
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useLocalStorage from "use-local-storage";
 import ShopItem from "./components/ShopItem";
+import "./Shop.css";
 
 const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo }) => {
 
@@ -55,20 +56,16 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo 
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', height: '100vh' }}>
+        <div className="shop">
             {date == 18 && updateNumNuggets}
-            <div style={{ display: 'flex', flexDirection: 'column', width: '200px', backgroundColor: 'lightblue', alignItems: 'center' }}>
-                <h1>SHOP</h1>
-                <p>Balance: ${localBalance} nuggets</p>
-
-                <div style={{ display: "flex", flexDirection: 'column', gap: "15px" }}>
-                    {items.map((item) => (
-                        <ShopItem item={item} handlePurchase={handlePurchase}></ShopItem>
-                    ))}
-                </div>
+            <h2 className="shop-header">SHOP</h2>
+            <p className="shop-balance">Balance: ${localBalance} nuggets</p>
+            <div className="shop-items">
+                {items.map((item) => (
+                    <ShopItem item={item} handlePurchase={handlePurchase}></ShopItem>
+                ))}
             </div>
-
-        </div>
+        </div >
     );
 }
 
