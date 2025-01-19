@@ -35,7 +35,7 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo}
         <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', height: '100vh' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '200px', backgroundColor: 'lightblue', alignItems: 'center' }}>
                 <h1>SHOP</h1>
-                <p>Balance: ${balance}</p>
+                <p>Balance: {balance} nuggets</p>
 
                 <div style={{ display: "flex", flexDirection: 'column', gap: "15px" }}>
                     {items.map((item) => (
@@ -48,7 +48,7 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo}
                             backgroundColor: "#fff",
                         }}>
                             <h3>{item.name}</h3>
-                            <p>Price: ${item.price}</p>
+                            <p>Price: {item.price} nuggets</p>
                             <button
                                 onClick={() => handlePurchase(item)}
                                 disabled={item.purchased}
