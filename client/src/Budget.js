@@ -11,7 +11,13 @@ const Budget = ({nuggets, setNuggets}) => {
         {id: 4, text: "Eating Out", budgetAmount: 100}]);
 
     const addRectangle = () => {
-        const newRectangle = { id: rectangles.length, text: currentName, budgetAmount: budgetAmount};
+        if (rectangles.length != 0){
+            var newId = rectangles[rectangles.length-1].id+1;
+        }else{
+            var newId = 0;
+        }
+        const newRectangle = { id: newId, text: currentName, budgetAmount: budgetAmount};
+        console.log(newRectangle);
         setRectangles([...rectangles, newRectangle]);
     };
 
@@ -34,6 +40,7 @@ const Budget = ({nuggets, setNuggets}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         addRectangle();
+        closeForm();
     };
 
     const handleNameSet = (event) => {
@@ -45,8 +52,10 @@ const Budget = ({nuggets, setNuggets}) => {
           {rectangles.map((rectangle) => (
             <BudgetItem
                 id={rectangle.id}
-                text = {rectangle.text}
-                budgetAmount = {rectangle.budgetAmount}
+                text={rectangle.text}
+                budgetAmount={rectangle.budgetAmount}
+                rectangles={rectangles}
+                setRectangles={setRectangles}
             />
           ))}
           <button className="add-button" type="button" onClick={openForm}>
@@ -62,11 +71,11 @@ const Budget = ({nuggets, setNuggets}) => {
                 <form>
                     <label htmlFor="name">Name</label>
                     <input type="text" id="name" name="name" required 
-                    text = {currentName} onChange={handleNameSet}/>
+                    text={currentName} onChange={handleNameSet}/>
 
                     <label htmlFor="name">Budgeted Amount</label>
                     <input type="number" id="budgetAmount" name="budgetAmount" required 
-                    text = {budgetAmount} onChange={handleBudgetChange}/>
+                    text={budgetAmount} onChange={handleBudgetChange}/>
 
                     <button type="submit" className='form-btn' onClick={handleSubmit}>Submit</button>
                     <button type="button" className="cancel-btn form-btn" onClick={closeForm}>Close</button>
