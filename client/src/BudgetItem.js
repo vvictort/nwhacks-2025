@@ -14,7 +14,6 @@ const BudgetItem = (props) => {
 
     const [overBudget, setOverBudget] = useState(false);
     const [buttonText, setButtonText] = useState("Click me");
-    const [putAmount, setPutAmount] = useState(0);
     const [budgetedAmount, setBudgetedAmount] = useState(0);
     const [putAmount, setPutAmount] = useState(props.budgetAmount);
     const [inputText, setInputText] = useState("");
