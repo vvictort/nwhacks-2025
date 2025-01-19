@@ -55,7 +55,8 @@ const Budget = ({nuggets, setNuggets}) => {
   };
 
   const distributeNuggets = () => {
-    
+    <Shop 
+    nuggets={numNuggets} />
   };
 
   const totalPutAmount = rectangles.reduce((sum, rectangle) => sum + rectangle.leftAmount, 0);
@@ -65,7 +66,7 @@ const Budget = ({nuggets, setNuggets}) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
     {date == 18 && (<h2>It's the start of a new month! You met your budget for {numberMet} budget goals. 
-        You failed to meet {rectangles.length - numberMet} budget goals. Total nuggest distribution for this month: {numNuggets}. 
+        You failed to meet {rectangles.length - numberMet} budget goals. Total nuggets distribution for this month: {numNuggets}. 
         All amounts are reset</h2>)}
     {date == 18 && distributeNuggets}
 
