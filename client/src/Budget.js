@@ -13,14 +13,13 @@ const Budget = ({ nuggets, setNuggets }) => {
     { id: 4, text: "Eating Out", budgetAmount: 100 }]);
 
   const addRectangle = () => {
-    const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount };
+    if (rectangles.length != 0) {
+      var newId = rectangles[rectangles.length - 1].id + 1;
+    } else {
+      var newId = 0;
+    }
+    const newRectangle = { id: newId, text: currentName, budgetAmount: budgetAmount };
     setRectangles([...rectangles, newRectangle]);
-
-  };
-
-  const removeRectangle = (nameToRemove) => {
-    setRectangles(rectangles.filter(rectangle => rectangle.text !== nameToRemove));
-    // console.log(rectangles);
   };
 
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -35,37 +34,21 @@ const Budget = ({ nuggets, setNuggets }) => {
 
   const openForm = () => {
     setIsFormVisible(true);
+    console.log(rectangles);
   };
-
-  const openDeleteForm = () => {
-    setIsDeleteFormVisible(true);
-  }
 
   const closeForm = () => {
     setIsFormVisible(false);
   };
 
-  const closeDeleteForm = () => {
-    setIsDeleteFormVisible(false);
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault();
     addRectangle();
-  };
-
-  const handleDeleteSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
-    removeRectangle(nameToRemove); // Call the remove function
-    setNameToRemove(""); // Clear the input field
+    closeForm();
   };
 
   const handleNameSet = (event) => {
     setCurrentName(event.target.value);
-  };
-
-  const handleNameToRemove = (event) => {
-    setNameToRemove(event.target.value);
   };
 
   return (
@@ -74,41 +57,19 @@ const Budget = ({ nuggets, setNuggets }) => {
         All amounts are reset</h2>)}
       {rectangles.map((rectangle) => (
         <BudgetItem
+          key={rectangle.id}
           id={rectangle.id}
           text={rectangle.text}
           budgetAmount={rectangle.budgetAmount}
+          rectangles={rectangles}
+          setRectangles={setRectangles}
         />
       ))}
-      <button type="button" onClick={openForm}
-        style={{
-
-          width: '40px',
-          height: '40px',
-          backgroundColor: 'white',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: '5px',
-        }}
-      >+
-      </button>
-
-      <button type="button" onClick={openDeleteForm}
-        style={{
-
-          width: '40px',
-          height: '40px',
-          backgroundColor: 'white',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: '5px',
-        }}
-      >-
+      <button className="add-button" type="button" onClick={openForm}>
+        +
       </button>
 
       <div className="App">
-
         {isFormVisible && (
           <div className="form-popup">
             <div className="form-container">
@@ -121,29 +82,8 @@ const Budget = ({ nuggets, setNuggets }) => {
                 <label htmlFor="name">Budgeted Amount</label>
                 <input type="number" id="budgetAmount" name="budgetAmount" required
                   text={budgetAmount} onChange={handleBudgetChange} />
-
                 <button type="submit" className='form-btn' onClick={handleSubmit}>Submit</button>
                 <button type="button" className="cancel-btn form-btn" onClick={closeForm}>Close</button>
-              </form>
-            </div>
-          </div>
-        )}
-
-        {isDeleteFormVisible && (
-          <div className="form-popup">
-            <div className="form-container">
-              <h2>Remove Budget Item</h2>
-              <form>
-                <label htmlFor="name">Name to Remove</label>
-                <input type="text" id="name" name="name" required
-                  text={currentName} onChange={handleNameToRemove} />
-
-                {/* <label htmlFor="name">Budgeted Amount</label>
-                <input type="number" id="budgetAmount" name="budgetAmount" required
-                  text={budgetAmount} onChange={handleBudgetChange} /> */}
-
-                <button type="submit" className='form-btn' onClick={handleDeleteSubmit}>Submit</button>
-                <button type="button" className="cancel-btn form-btn" onClick={closeDeleteForm}>Close</button>
               </form>
             </div>
           </div>

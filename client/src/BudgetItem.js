@@ -13,7 +13,7 @@ const BudgetItem = (props) => {
     const date = today. getDate();
 
     const [overBudget, setOverBudget] = useState(false);
-     const [buttonText, setButtonText] = useState("Click me");
+    const [buttonText, setButtonText] = useState("Click me");
     const [budgetedAmount, setBudgetedAmount] = useState(0);
     const [putAmount, setPutAmount] = useState(props.budgetAmount);
     const [inputText, setInputText] = useState("");
@@ -68,6 +68,10 @@ const BudgetItem = (props) => {
     const setAmountsToZero = () => {
         setPutAmount(0);
     }
+
+    const handleDelete = () => {
+        props.setRectangles(props.rectangles.filter(rectangle => rectangle.id !== props.id))
+    }
     
       
     return ( 
@@ -118,6 +122,7 @@ const BudgetItem = (props) => {
                 onChange={handleBudgetChange}
                 placeholder="Budget Amount" 
             /> */}
+            <button id="delete-budget" onClick={handleDelete}>Delete</button>
             <button type="submit" onClick={updatePutState}>Submit</button>
             </form>
         )}
