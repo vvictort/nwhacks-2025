@@ -18,3 +18,14 @@
     align-items: center;
     border-radius: 5px;
 }
+
+#submit-button {
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}

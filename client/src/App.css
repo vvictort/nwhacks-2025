@@ -15,9 +15,11 @@ button {
   margin-top: 16px;
 } */
 
-.Addition-Form {
+.modification-form {
   font-family: Arial, sans-serif;
   text-align: center;
+  position: absolute;
+  bottom: auto;
 }
 
 .form-popup {
