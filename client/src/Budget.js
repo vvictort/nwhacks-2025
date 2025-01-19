@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 
 import BudgetItem from './BudgetItem';
 
-const Budget = ({nuggets, setNuggets}) => {
-    const today = new Date();
-    const date = today. getDate();
-    const [rectangles, setRectangles] = useState([
-        {id: 0, text: "Rent/Utilities", budgetAmount: 100}, 
-        {id: 1, text: "Education", budgetAmount: 100},
-        {id: 2, text: "Entertainment", budgetAmount: 100},
-        {id: 3, text: "Groceries", budgetAmount: 100},
-        {id: 4, text: "Eating Out", budgetAmount: 100}]);
-         
+const Budget = ({ nuggets, setNuggets }) => {
+  const today = new Date();
+  const date = today.getDate();
+  const [rectangles, setRectangles] = useState([
+    { id: 0, text: "Rent/Utilities", budgetAmount: 100 },
+    { id: 1, text: "Education", budgetAmount: 100 },
+    { id: 2, text: "Entertainment", budgetAmount: 100 },
+    { id: 3, text: "Groceries", budgetAmount: 100 },
+    { id: 4, text: "Eating Out", budgetAmount: 100 }]);
+
   const addRectangle = () => {
     const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount };
     setRectangles([...rectangles, newRectangle]);
@@ -70,7 +70,7 @@ const Budget = ({nuggets, setNuggets}) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-    {date == 18 && (<h2>It's the start of a new month! Extra money has been put towards your goal. 
+      {date == 18 && (<h2>It's the start of a new month! Extra money has been put towards your goal.
         All amounts are reset</h2>)}
       {rectangles.map((rectangle) => (
         <BudgetItem

@@ -10,11 +10,13 @@ const Home = () => {
         "horns": "false"
     });
     const [nuggets, setNuggets] = useState(0);
-    return ( 
+    return (
         <div className="home">
-            <Budget nuggets={nuggets} setNuggets={setNuggets}/>
-            <Character charInfo={charInfo}/>
-            <Shop />
+            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', height: '100vh' }}>
+                <Budget nuggets={nuggets} setNuggets={setNuggets} />
+                <Shop nuggets={nuggets} setNuggets={setNuggets} charInfo={charInfo} setCharInfo={setCharInfo} />
+                <Character charInfo={charInfo} />
+            </div>
         </div>
     );
 }
