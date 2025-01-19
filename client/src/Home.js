@@ -5,11 +5,11 @@ import { useState } from "react";
 
 const Home = () => {
     const [charInfo, setCharInfo] = useState({
-        "sweater": "false",
-        "flame": "false",
-        "horns": "false"
+        "Sweater": false,
+        "Fire": false,
+        "Antlers": false
     });
-    const [nuggets, setNuggets] = useState(0);
+    const [nuggets, setNuggets] = useState(10000);
     return (
         <div className="home">
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', height: '100vh' }}>

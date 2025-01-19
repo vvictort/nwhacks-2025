@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const Shop = () => {
+const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo}) => {
 
-    const [balance, setBalance] = useState(1000);
+    
 
     const [items, setItems] = useState([
         { id: 0, name: "Antlers", price: 100, purchased: false },
@@ -13,7 +13,12 @@ const Shop = () => {
     const handlePurchase = (item) => {
         if (balance >= item.price) {
             setBalance(balance - item.price);
-            alert(`You bought the ${item.name}!`);   
+            alert(`You bought the ${item.name}!`);
+            setCharInfo((prevState) => ({
+                ...prevState,
+                [item.name]: true,
+            }));
+            console.log(charInfo);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
                   currentItem.id === item.id
