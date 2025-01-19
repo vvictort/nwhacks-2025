@@ -46,13 +46,13 @@ const Login = () => {
                     <span>or</span>
                 </div>
 
-                <div class="social">
-                    <div class="instagram">
-                        <i class="fab fa-instagram"></i>
+                <div className="social">
+                    <div className="instagram">
+                        <i className="fab fa-instagram"></i>
                     </div>
 
-                    <div class="facebook">
-                        <i class="fab fa-google"></i>
+                    <div className="facebook">
+                        <i className="fab fa-google"></i>
                     </div>
                 </div>
 
