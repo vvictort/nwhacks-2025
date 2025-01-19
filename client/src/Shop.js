@@ -28,6 +28,11 @@ const Shop = () => {
         if (balance >= item.price) {
             setBalance(balance - item.price);
             alert(`You bought the ${item.name}!`);
+            setCharInfo((prevState) => ({
+                ...prevState,
+                [item.name]: true,
+            }));
+            console.log(charInfo);
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
                     currentItem.id === item.id
