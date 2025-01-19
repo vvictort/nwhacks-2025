@@ -53,7 +53,9 @@ const Budget = ({nuggets, setNuggets}) => {
       
       return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {rectangles.map((rectangle) => (
+        {date == 18 && (<h2>It's the start of a new month! Extra money has been put towards your goal. 
+        All amounts are reset</h2>)}
+      {rectangles.map((rectangle) => (
             <BudgetItem
                 key={rectangle.id}
                 id={rectangle.id}
