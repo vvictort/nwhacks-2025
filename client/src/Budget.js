@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import BudgetItem from './BudgetItem';
 
-const Budget = () => {
+const Budget = ({nuggets, setNuggets}) => {
     const [rectangles, setRectangles] = useState([
         {id: 0, text: "Rent/Utilities", budgetAmount: 100}, 
         {id: 1, text: "Education", budgetAmount: 100},
