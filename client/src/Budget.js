@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 
 const Budget = () => {
-    const [rectangles, setRectangles] = useState([]);
+    const [rectangles, setRectangles] = useState([
+        {id: 0, text: "Rent/Utilities"}, 
+        {id: 1, text: "Education"},
+        {id: 2, text: "Entertainment"},
+        {id: 3, text: "Groceries"},
+        {id: 4, text: "Eating Out"}]);
+
 
     const addRectangle = () => {
-        const newRectangle = { id: rectangles.length + 1, text: `Rectangle ${rectangles.length + 1}` };
+        const newRectangle = { id: rectangles.length + 1, text: `Budget Item ${rectangles.length + 1}` };
         setRectangles([...rectangles, newRectangle]);
     };
 
