@@ -59,9 +59,9 @@ const BudgetItem = (props) => {
     const updatePutState = () => {
         if (newPut != 0) {
             setPutAmount(newPut);
-            props.setRectangles((prevRectangles) =>
-                prevRectangles.map((rectangle) =>
-                  rectangle.id === props.id ? { ...rectangle, leftAmount: newPut } : rectangle
+            props.setBudgetItems((prevItems) =>
+                prevItems.map((item) =>
+                    item.id === props.id ? { ...item, leftAmount: newPut } : item
                 )
               );
             if (newPut < 0) {
@@ -76,7 +76,7 @@ const BudgetItem = (props) => {
     }
 
     const handleDelete = () => {
-        props.setRectangles(props.rectangles.filter(rectangle => rectangle.id !== props.id))
+        props.setBudgetItems(props.budgetItems.filter(item => item.id !== props.id))
     }
     
       

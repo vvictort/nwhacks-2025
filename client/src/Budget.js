@@ -6,21 +6,20 @@ import Shop from './Shop';
 const Budget = ({nuggets, setNuggets}) => {
     const today = new Date();
     const date = today. getDate();
-    const [rectangles, setRectangles] = useState([
+    const [budgetItems, setBudgetItems] = useState([
         {id: 0, text: "Rent/Utilities", budgetAmount: 100, leftAmount: 100}, 
         {id: 1, text: "Education", budgetAmount: 100, leftAmount: 100},
         {id: 2, text: "Entertainment", budgetAmount: 100, leftAmount: 100},
         {id: 3, text: "Groceries", budgetAmount: 100, leftAmount: 100},
         {id: 4, text: "Eating Out", budgetAmount: 100, leftAmount: 100}]);
          
-  const addRectangle = () => {
-    const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount, leftAmount: leftAmount};
-    setRectangles([...rectangles, newRectangle]);
+  const addItem = () => {
+    const newBudget = { id: budgetItems.length + 1, text: currentName, budgetAmount: budgetAmount, leftAmount: leftAmount};
+    setBudgetItems([...budgetItems, newBudget]);
   };
 
-  const removeRectangle = (nameToRemove) => {
-    setRectangles(rectangles.filter(rectangle => rectangle.text !== nameToRemove));
-    // console.log(rectangles);
+  const removeBudgetItem = (nameToRemove) => {
+    setBudgetItems(budgetItems.filter(budgetItem => budgetItem.text !== nameToRemove));
   };
 
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -39,7 +38,6 @@ const Budget = ({nuggets, setNuggets}) => {
 
   const openForm = () => {
     setIsFormVisible(true);
-    console.log(rectangles);
   };
 
   const closeForm = () => {
@@ -48,7 +46,7 @@ const Budget = ({nuggets, setNuggets}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addRectangle();
+    addItem();
     closeForm();
   };
 
@@ -60,26 +58,26 @@ const Budget = ({nuggets, setNuggets}) => {
  
   };
 
-  const totalPutAmount = rectangles.reduce((sum, rectangle) => sum + rectangle.leftAmount, 0);
-  const numberMet = rectangles.reduce((sum, rectangle) => sum + (rectangle.leftAmount >= 0), 0);
-  const numNuggets = numberMet * 10 + (rectangles.length - numberMet) * (-25);
+  const totalPutAmount = budgetItems.reduce((sum, budgetItem) => sum + budgetItem.leftAmount, 0);
+  const numberMet = budgetItems.reduce((sum, budgetItem) => sum + (budgetItem.leftAmount >= 0), 0);
+  const numNuggets = numberMet * 10 + (budgetItems.length - numberMet) * (-25);
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', zIndex: 0}}>
     {date == 18 && (<h2>It's the start of a new month! You met your budget for {numberMet} budget goals. 
-        You failed to meet {rectangles.length - numberMet} budget goals. Total nuggets distribution for this month: {numNuggets}. 
+        You failed to meet {budgetItems.length - numberMet} budget goals. Total nuggets distribution for this month: {numNuggets}. 
         All amounts are reset</h2>)}
     {date == 18 && distributeNuggets}
 
-      {rectangles.map((rectangle) => (
+      {budgetItems.map((budgetItem) => (
         <BudgetItem
-          key={rectangle.id}
-          id={rectangle.id}
-          text={rectangle.text}
-          budgetAmount={rectangle.budgetAmount}
-          leftAmount = {rectangle.leftAmount}
-          rectangles = {rectangles}
-          setRectangles = {setRectangles}
+          key={budgetItem.id}
+          id={budgetItem.id}
+          text={budgetItem.text}
+          budgetAmount={budgetItem.budgetAmount}
+          leftAmount = {budgetItem.leftAmount}
+          budgetItems = {budgetItems}
+          setBudgetItems = {setBudgetItems}
         />
       ))}
       <button className="add-button" type="button" onClick={openForm}>
@@ -111,8 +109,8 @@ const Budget = ({nuggets, setNuggets}) => {
       </div>
       <div>
         <h4>You still have ${totalPutAmount} left that you can spend.</h4> 
-        {numberMet == rectangles.length && (<div><h4>You are meeting {numberMet} of your budget goals.</h4> <h4>Slyther is happy.</h4> </div>)}
-        {numberMet < rectangles.length && (<div><h2>You did not meet all of your budget goals</h2> <h2>Slyther is sad.</h2> </div>)}
+        {numberMet == budgetItems.length && (<div><h4>You are meeting {numberMet} of your budget goals.</h4> <h4>Slyther is happy.</h4> </div>)}
+        {numberMet < budgetItems.length && (<div><h2>You did not meet all of your budget goals</h2> <h2>Slyther is sad.</h2> </div>)}
         </div>
       
 

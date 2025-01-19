@@ -24,8 +24,8 @@ const Login = () => {
             <div className="shape shape4"></div>
             <form className="login-form">
                 <div className="welcome">
-                    <h1>[Logo] monenify</h1><br />
-                    <h2>Welcome to monenify! </h2>
+                    <h1>[Logo] Slyther</h1><br />
+                    <h2>Welcome to Slyther! </h2>
                     <h4>Please sign-in to your account and save money today.</h4><br />
                 </div>
 
