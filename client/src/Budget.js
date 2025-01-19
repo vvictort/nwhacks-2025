@@ -18,6 +18,7 @@ const Budget = ({ nuggets, setNuggets }) => {
 
   const removeRectangle = (nameToRemove) => {
     setRectangles(rectangles.filter(rectangle => rectangle.text !== nameToRemove));
+    // console.log(rectangles);
   };
 
   const [isFormVisible, setIsFormVisible] = useState(false);
