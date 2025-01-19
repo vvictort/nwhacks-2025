@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -16,12 +17,35 @@ const Login = () => {
 
     return (
         <div className="login" align="center">
-            <h2>Login</h2>
-            <form style={{ width: "200px" }}>
-                <input required type="text" value={username} onChange={(e) => setUsername(e.target.value)} /><br />
-                <input required type="text" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-                <button onClick={handleLogin}>Login</button>
-            </form>
+            <div>
+                <form>
+                    <h2>User Login</h2>
+
+                    <label htmlFor="username">Username</label>
+                    <input required type="text" value={username} placeholder="Username" onChange={(e) => setUsername(e.target.value)} /><br />
+
+                    <label htmlFor="password">Password</label>
+                    <input required type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} /><br />
+                    <button classname="login-button" onClick={handleLogin}>Login</button>
+
+                    <div class="social">
+                        <div class="instagram">
+                            <i class="fab fa-instagram"> Instagram</i>
+                        </div>
+
+                        <div class="facebook">
+                            <i class="fab fa-facebook"> Facebook</i>
+                        </div>
+
+                        <div class="twitter">
+                            <i class="fab fa-twitter"> X</i>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+
         </div>
     );
 }
