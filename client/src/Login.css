@@ -1,0 +1,116 @@
+@import url('@fortawesome/fontawesome-free/css/all.min.css');
+
+.background {
+    width: 530px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #080710;
+}
+
+.login h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 4px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0000FF;
+    color: #080710;
+}
+
+
+.social {
+    margin-top: 20px;
+    display: flex;
+}
+
+.social div {
+    display: flex;
+    /* background: red; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(69, 69, 69, 0.041);
+    color: #eaf0fb;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-width: 1px;
+    margin-right: 10px;
+}
+
+.social div:hover {
+    background-color: rgba(112, 8, 8, 0.47);
+}
+
+
+.social i {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 400px;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* color: #eaf0fb: */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login input {
+    margin-bottom: 2px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 2px;
+    color: #000000;
+    backdrop-filter: blur(10px);
+}
+
+::placeholder {
+    color: #353535;
+}
+
+
+
+.login label {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    padding: 1px;
+    text-align: left;
+}
