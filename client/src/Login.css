@@ -3,121 +3,201 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+    position: relative;
+    /* To position the shapes relative to the body */
+    overflow: hidden;
 }
 
-
-.background {
-    width: 530px;
-    height: 520px;
+.shape {
     position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
+    background: rgba(144, 238, 144, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 0;
 }
 
-.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #080710;
+.shape1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
 }
 
-.login h2 {
-    margin-bottom: 20px;
-}
-
-button {
-    margin-top: 4px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0000FF;
-    color: #080710;
-}
-
-
-.social {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.social div {
-    display: flex;
-    /* background: red; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.shape2 {
     width: 150px;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: rgba(69, 69, 69, 0.041);
-    color: #eaf0fb;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-width: 1px;
-    margin-right: 10px;
+    height: 150px;
+    bottom: 10px;
+    right: 10px;
 }
 
-.social div:hover {
-    background-color: rgba(112, 8, 8, 0.47);
+.shape3 {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-
-.social i {
-    margin-right: 5px;
-    font-size: 15px;
+.shape4 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -200px;
 }
 
-
-.login form {
+.login-sign {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    width: 400px;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    /* color: #eaf0fb: */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    /* background-color: whitesmoke; */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Slightly transparent background for the form */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding-left: 55%;
+    z-index: 1;
+}
+
+.welcome {
+    text-align: left;
+}
+
+.welcome h2,
+.welcome h4 {
+    margin: 0.5rem 0;
+    font-size: 14px;
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 350px;
+    height: 70%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.login input {
-    margin-bottom: 2px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-radius: 2px;
-    color: #000000;
-    backdrop-filter: blur(10px);
-}
 
-::placeholder {
-    color: #353535;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.login label {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    padding: 1px;
+.login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
     text-align: left;
+}
+
+.login-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.1px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    /* Ensures the checkbox and text are vertically aligned */
+    justify-content: start;
+    /* Aligns the content to the left */
+    gap: 0.5rem;
+    /* Adds horizontal space between the checkbox and text */
+    margin-bottom: 0.1rem;
+    /* Adjust spacing below the section */
+    font-size: 0.8rem;
+    /* Matches the size in the second image */
+    color: #6c757d;
+    /* Subtle text color */
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    accent-color: #6c63ff;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+    display: inline-block;
+    width: auto;
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: #4CAF50;
+    /* Green background */
+    color: white;
+    /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow on hover */
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.separator:not(:empty)::before {
+    margin-right: 0.5em;
+}
+
+.separator:not(:empty)::after {
+    margin-left: 0.5em;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.social .instagram,
+.social .facebook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 1rem; */
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social .instagram:hover,
+.social .facebook:hover {
+    background-color: #f0f0f0;
+    /* Change background color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow on hover */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
 }
