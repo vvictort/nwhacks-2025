@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import BudgetItem from './BudgetItem';
 
 const Budget = () => {
@@ -8,7 +9,6 @@ const Budget = () => {
         {id: 2, text: "Entertainment"},
         {id: 3, text: "Groceries"},
         {id: 4, text: "Eating Out"}]);
-
 
     const addRectangle = () => {
         const newRectangle = { id: rectangles.length + 1, text: `Budget Item ${rectangles.length + 1}` };
@@ -36,7 +36,11 @@ const Budget = () => {
           }}
           >+
           </button>
+
+          
         </div>
+
+
       );
       
 };
