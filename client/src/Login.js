@@ -30,15 +30,11 @@ const Login = () => {
 
                     <div class="social">
                         <div class="instagram">
-                            <i class="fab fa-instagram"> Instagram</i>
+                            <i class="fab fa-instagram"></i>
                         </div>
 
                         <div class="facebook">
-                            <i class="fab fa-facebook"> Facebook</i>
-                        </div>
-
-                        <div class="twitter">
-                            <i class="fab fa-twitter"> X</i>
+                            <i class="fab fa-google"></i>
                         </div>
                     </div>
 

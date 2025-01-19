@@ -1,4 +1,10 @@
-@import url('@fortawesome/fontawesome-free/css/all.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
 
 .background {
     width: 530px;
@@ -43,6 +49,7 @@ button:hover {
 .social {
     margin-top: 20px;
     display: flex;
+    justify-content: center;
 }
 
 .social div {
@@ -69,7 +76,7 @@ button:hover {
 
 .social i {
     margin-right: 5px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 
@@ -103,14 +110,16 @@ button:hover {
 
 ::placeholder {
     color: #353535;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 
 
 .login label {
     font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 10px;
+    font-weight: 500;
+    margin-bottom: 4px;
     padding: 1px;
     text-align: left;
 }
