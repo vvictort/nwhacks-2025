@@ -30,6 +30,10 @@ const Shop = ({ nuggets: balance, setNuggets: setBalance, charInfo, setCharInfo 
             setLocalBalance(newBalance);
             localStorage.setItem('balance', JSON.stringify(newBalance));
             alert(`You bought the ${item.name}!`);
+            setCharInfo((prevState) => ({
+                ...prevState,
+                [item.name]: true,
+            }));
             setItems((prevItems) =>
                 prevItems.map((currentItem) =>
                     currentItem.id === item.id
