@@ -22,6 +22,11 @@ button {
   bottom: auto;
 }
 
+.Addition-form {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
 .form-popup {
   position: fixed;
   top: 50%;
