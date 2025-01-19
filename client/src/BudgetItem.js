@@ -6,17 +6,11 @@ const BudgetItem = (props) => {
         alert("You clicked me!");
       }
 
-    // const [isFormVisible, setIsFormVisible] = useState(false);
-
-    // const openForm = () => {
-    // setIsFormVisible(true);
-    // };
-
-    // const closeForm = () => {
-    // setIsFormVisible(false);
-    // };
+    
 
     const [buttonText, setButtonText] = useState("Click me");
+    const [putAmount, setPutAmount] = useState(0);
+    const [budgetedAmount, setBudgetedAmount] = useState(0);
     const [inputText, setInputText] = useState("");
     const [isInputVisible, setIsInputVisible] = useState(false);
     const [changed, setChanged] = useState(false);
@@ -58,10 +52,11 @@ const BudgetItem = (props) => {
             borderRadius: '5px',
             }}
         >
-            {changed ? inputText : props.text}
+            {changed ? inputText : props.text} <br></br>
+            {putAmount}/{budgetedAmount}
         </button>
 
-
+        
         <div className="App">
 
         {isInputVisible && (
@@ -77,26 +72,7 @@ const BudgetItem = (props) => {
         )}
         </div>
 
-        {/* <div className="App">
-
-        {isFormVisible && (
-        <div className="form-popup">
-            <div className="form-container">
-            <h2>Contact Us</h2>
-            <form>
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name" required />
-
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required />
-
-                <button type="submit">Submit</button>
-                <button type="button" className="cancel-btn" onClick={closeForm}>Close</button>
-            </form>
-            </div>
-        </div>
-        )}
-        </div> */}
+        
         </div>
     );
 }
