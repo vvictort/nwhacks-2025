@@ -15,8 +15,9 @@ const Character = () => {
     useEffect(() => {
         // onload set localstorage data
         setCharInfo({
-            Sweater: false,
+            
             Fire: false,
+            Sweater: false,
             Antlers: false,
         })
     }, []);
@@ -26,9 +27,9 @@ const Character = () => {
     }, [charInfo]);
 
     useEffect(() => {
-        items.forEach(item => {
+        items.forEach((item) => {
             if (item?.purchased) {
-                setCharInfo({ ...charInfo, [item?.name]: true })
+                setCharInfo({...charInfo, [item?.name]: true})
             }
         });
     }, [items]);

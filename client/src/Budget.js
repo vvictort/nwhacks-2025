@@ -33,6 +33,8 @@ const Budget = ({nuggets, setNuggets}) => {
 
   const handleBudgetChange = (event) => {
     setBudgetAmount(event.target.value);
+    var amount = Number(event.target.value);
+    setLeftAmount(amount);
   };
 
   const openForm = () => {
