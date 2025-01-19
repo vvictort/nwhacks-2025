@@ -6,16 +6,15 @@ const Budget = ({nuggets, setNuggets}) => {
     const today = new Date();
     const date = today. getDate();
     const [rectangles, setRectangles] = useState([
-        {id: 0, text: "Rent/Utilities", budgetAmount: 100}, 
-        {id: 1, text: "Education", budgetAmount: 100},
-        {id: 2, text: "Entertainment", budgetAmount: 100},
-        {id: 3, text: "Groceries", budgetAmount: 100},
-        {id: 4, text: "Eating Out", budgetAmount: 100}]);
+        {id: 0, text: "Rent/Utilities", budgetAmount: 100, leftAmount: 100}, 
+        {id: 1, text: "Education", budgetAmount: 100, leftAmount: 100},
+        {id: 2, text: "Entertainment", budgetAmount: 100, leftAmount: 100},
+        {id: 3, text: "Groceries", budgetAmount: 100, leftAmount: 100},
+        {id: 4, text: "Eating Out", budgetAmount: 100, leftAmount: 100}]);
          
   const addRectangle = () => {
-    const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount };
+    const newRectangle = { id: rectangles.length + 1, text: currentName, budgetAmount: budgetAmount, leftAmount: leftAmount};
     setRectangles([...rectangles, newRectangle]);
-
   };
 
   const removeRectangle = (nameToRemove) => {
@@ -28,6 +27,7 @@ const Budget = ({nuggets, setNuggets}) => {
   const [currentName, setCurrentName] = useState("");
   const [nameToRemove, setNameToRemove] = useState("");
   const [budgetAmount, setBudgetAmount] = useState(0);
+  const [leftAmount, setLeftAmount] = useState(0);
 
   const handleBudgetChange = (event) => {
     setBudgetAmount(event.target.value);
@@ -68,15 +68,25 @@ const Budget = ({nuggets, setNuggets}) => {
     setNameToRemove(event.target.value);
   };
 
+
+  const totalPutAmount = rectangles.reduce((sum, rectangle) => sum + rectangle.leftAmount, 0);
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-    {date == 18 && (<h2>It's the start of a new month! Extra money has been put towards your goal. 
+    {date == 1 && (<h2>It's the start of a new month! Extra money has been put towards your goal. 
         All amounts are reset</h2>)}
+
+        <h2>You still have ${totalPutAmount} that you can spend.</h2>
+
       {rectangles.map((rectangle) => (
         <BudgetItem
           id={rectangle.id}
           text={rectangle.text}
           budgetAmount={rectangle.budgetAmount}
+          leftAmount = {rectangle.leftAmount}
+          rectangles = {rectangles}
+          setRectangles = {setRectangles}
         />
       ))}
       <button type="button" onClick={openForm}
@@ -107,7 +117,7 @@ const Budget = ({nuggets, setNuggets}) => {
       >-
       </button>
 
-      <div className="App">
+      <div className="Addition-Form">
 
         {isFormVisible && (
           <div className="form-popup">
