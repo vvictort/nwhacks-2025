@@ -100,7 +100,7 @@ const BudgetItem = (props) => {
             }}
         >
             {changed ? inputText : props.text} <hr></hr>
-            <p style={{color: overBudget ? 'red' : 'black'}}>{putAmount}$</p>/{props.budgetAmount}$
+            <p style={{color: overBudget ? 'red' : 'black'}}>${putAmount}</p>/${props.budgetAmount}
             
         </button>
         
